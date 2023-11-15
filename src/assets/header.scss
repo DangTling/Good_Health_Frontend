@@ -1,0 +1,29 @@
+.navbar {
+  padding: 0 10%;
+  width: 100vw;
+  height: 116px;
+  background: url("../assets/image/header_desktop_a4bfadd206.webp") no-repeat;
+  background-size: cover;
+
+  .container-fluid {
+    width: 100%;
+
+    .navbar-collapse {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            background: none;
+            width: 100%;
+          }
+          .bg {
+            background-color: #1250dc;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}

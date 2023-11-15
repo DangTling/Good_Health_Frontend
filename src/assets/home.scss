@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Nova+Mono");
+:root {
+  --font-header: "Nova Mono", monospace;
+  --font-text: "Open Sans", sans-serif;
+  --color-theme: #f1eedb;
+  --color-bg: #282b24;
+
+  --animation-sentence: "You know you're supposed to leave, right?";
+  --animation-duration: 40s;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.content {
+  padding: 0 10%;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30%;
+
+  .more_info {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    .col2 {
+      height: 100%;
+      .row1 {
+        width: 100%;
+        height: 50%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .row2 {
+        width: 100%;
+        height: 35%;
+        display: flex;
+
+        .btn {
+          margin-left: 2%;
+          width: 35%;
+          height: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 500;
+          margin-right: 2%;
+          border-radius: 20px;
+          background-color: rgb(255, 237, 237);
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .list {
+    width: 100%;
+    height: 100%;
+
+    font-family: var(--font-text);
+    color: var(--color-theme);
+    background: rgb(255, 194, 194);
+
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+    .gift,
+    h2 {
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      transform: translateX(-50%);
+    }
+    h2 {
+      color: white;
+      top: -7px;
+      font-size: 22px;
+    }
+
+    .container {
+      text-align: center;
+      margin: 1rem 0.5rem 0;
+    }
+    .container h1 {
+      font-family: var(--font-header);
+      font-size: calc(4rem + 2vw);
+      text-transform: uppercase;
+    }
+    .container p {
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      font-size: 2rem;
+      margin: 1.5rem 0 3rem;
+    }
+    svg.keyhole {
+      height: 82px;
+      width: 82px;
+      opacity: 0;
+      visibility: hidden;
+
+      animation: showKey 0.5s 0.5s paused ease-out forwards;
+    }
+    svg.key {
+      height: 164px;
+      width: 164px;
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+
+      animation: showKey 0.5s 0.5s paused ease-out forwards;
+    }
+    .ghost {
+      position: absolute;
+      bottom: 5px;
+      left: calc(50% - 100px);
+      width: 200px;
+      height: 200px;
+
+      animation: hoverGhost calc(var(--animation-duration) / 2) ease-in-out 2;
+    }
+
+    .ghost:before {
+      content: var(--animation-sentence);
+      color: var(--color-theme);
+      border-radius: 50%;
+      position: absolute;
+      bottom: 100%;
+      text-align: center;
+      line-height: 2;
+      padding: 1rem;
+      visibility: hidden;
+      opacity: 0;
+
+      animation: showText calc(var(--animation-duration) / 8)
+          calc(var(--animation-duration) * 3 / 16) ease-out forwards,
+        showNewText calc(var(--animation-duration) / 8)
+          calc(var(--animation-duration) * 27 / 40) ease-out forwards,
+        showFinalText calc(var(--animation-duration) / 8)
+          var(--animation-duration) ease-out forwards;
+    }
+
+    @keyframes hoverGhost {
+      25% {
+        transform: translateX(20vw);
+      }
+      75% {
+        transform: translateX(-20vw);
+      }
+    }
+
+    @keyframes showKey {
+      to {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    /* alter the text changing the value of the custom property, weary of changing its value when the pseudo element is hidden and changing its value in the last keyframe (as the animation gives this value as per the "forwards" value of the fill-mode property)  */
+    @keyframes showText {
+      2% {
+        opacity: 1;
+        visibility: visible;
+      }
+      98% {
+        opacity: 1;
+        visibility: visible;
+      }
+      99% {
+        --animation-sentence: "You know you're supposed to leave, right?";
+        opacity: 0;
+        visibility: hidden;
+      }
+      100% {
+        --animation-sentence: "So much to do, so little time...";
+      }
+    }
+    @keyframes showNewText {
+      2% {
+        --animation-sentence: "So much to do, so little time...";
+        opacity: 1;
+        visibility: visible;
+      }
+      98% {
+        opacity: 1;
+        visibility: visible;
+      }
+      99% {
+        --animation-sentence: "So much to do, so little time...";
+        opacity: 0;
+        visibility: hidden;
+      }
+      100% {
+        --animation-sentence: "Okay, you seem to care about this. Here's a key just for you";
+      }
+    }
+    @keyframes showFinalText {
+      2% {
+        opacity: 1;
+        visibility: visible;
+      }
+      98% {
+        opacity: 1;
+        visibility: visible;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .item_father {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5% 2%;
+
+      .item_child {
+        height: 50%;
+        width: 21%;
+        margin: 2% 2%;
+        overflow: hidden;
+        background-color: white;
+        border-radius: 8px;
+        padding: 2% 2%;
+        position: relative;
+
+        img {
+          height: 40%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        h4 {
+          color: #282b24;
+          font-size: 14px;
+          font-weight: 600;
+          margin: 5% 0;
+        }
+        span {
+          color: rgb(80, 80, 255);
+          font-size: 12px;
+          font-weight: 600;
+        }
+        div {
+          width: 60%;
+          height: 7%;
+          background-color: #edf0f3;
+          position: absolute;
+          bottom: 5%;
+          left: 8%;
+          border-radius: 16xp;
+          color: black;
+          font-size: 10px;
+          font-weight: 600;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
